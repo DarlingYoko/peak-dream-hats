@@ -30,7 +30,7 @@ to create your own resources.
   - Check 'Use Space Transform' and 'Apply Transform'
 - Save textures to `.png` file if you made mapped to object.
 
-[Now you are ready to build asset bundle!](./build-asset-bundle.md)
+[Now you are ready to build asset bundle!](https://github.com/Creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)
 
 ## Prepare scene in Blender
 
@@ -125,4 +125,4 @@ at left side of texture name.
    - Recommended size is `128x128` pixels.
    
 
-[Now you are ready to build asset bundle!](./build-asset-bundle.md)
+[Now you are ready to build asset bundle!](https://github.com/Creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)

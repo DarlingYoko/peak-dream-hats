@@ -1,5 +1,7 @@
 # More Customizations
 
+![Thumbnail](./icon.png)
+
 This mod manages to allow adding more customization options by utilizing AssetBundle.
 
 Most parts are inspired from [CustomHats](https://github.com/radsi/PEAK-CustomHats).
@@ -37,12 +39,12 @@ Most parts are inspired from [CustomHats](https://github.com/radsi/PEAK-CustomHa
 
 ## Table of contents
 
-- [Accessory](./docs/accessory.md)
-- [Mouth](./docs/mouth.md)
-- [Eyes](./docs/eyes.md)
-- [Hat](./docs/hat.md)
-- [Build asset bundle](./docs/build-asset-bundle.md)
-- [Create customization](./docs/create-customization.md)
+- [Accessory](https://github.com/creta5164/peak-more-customizations/tree/main/docs/accessory.md)
+- [Mouth](https://github.com/creta5164/peak-more-customizations/tree/main/docs/mouth.md)
+- [Eyes](https://github.com/creta5164/peak-more-customizations/tree/main/docs/eyes.md)
+- [Hat](https://github.com/creta5164/peak-more-customizations/tree/main/docs/hat.md)
+- [Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)
+- [Create customization](https://github.com/creta5164/peak-more-customizations/tree/main/docs/create-customization.md)
 
 # Build from source
 
@@ -54,7 +56,7 @@ Open `MoreCustomizations.csproj` file, then find `GameDir` and `DestDir` propert
 
 You need to change it for your environment.
 
-![How it should be](./docs/img/build-from-source-1.png)
+![How it should be](https://github.com/creta5164/peak-more-customizations/tree/main/docs/img/build-from-source-1.png)
 
 - `GameDir` : Installation path of PEAK. (i.e. it should be ended with `...steamapps/common/PEAK`)
 - `DestDir` : Distribution path of compiled results. (i.e. parent directory of `BepInEx`.)

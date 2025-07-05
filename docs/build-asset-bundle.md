@@ -102,4 +102,4 @@ static class BuildAssetBundle {
 
 Note that do not rename asset bundle file!
 
-[Now you are ready to create customization!](./create-customization.md)
+[Now you are ready to create customization!](https://github.com/Creta5164/peak-more-customizations/tree/main/docs/create-customization.md)

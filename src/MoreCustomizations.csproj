@@ -50,9 +50,9 @@
   <Target Name="PostPublish" AfterTargets="Publish" Condition="Exists('$(DestDir)')">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)/bin/ThunderStore/BepInEx/plugins/$(ProjectName)" />
     <Copy SourceFiles="@(BuiltInCustoms)" DestinationFolder="$(ProjectDir)/bin/ThunderStore/BepInEx/plugins/$(ProjectName)/Customizations/%(RecursiveDir)" />
-    <Copy SourceFiles="@(Documentations)" DestinationFiles="$(ProjectDir)/bin/ThunderStore/docs/%(RecursiveDir)%(Filename)%(Extension)" />
     <Copy SourceFiles="../manifest.json" DestinationFolder="$(ProjectDir)/bin/ThunderStore" />
     <Copy SourceFiles="../README.md" DestinationFolder="$(ProjectDir)/bin/ThunderStore" />
+    <Copy SourceFiles="../CHANGELOG.md" DestinationFolder="$(ProjectDir)/bin/ThunderStore" />
     <Copy SourceFiles="../icon.png" DestinationFolder="$(ProjectDir)/bin/ThunderStore" />
   </Target>
 </Project>
