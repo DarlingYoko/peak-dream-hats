@@ -56,7 +56,7 @@ Open `MoreCustomizations.csproj` file, then find `GameDir` and `DestDir` propert
 
 You need to change it for your environment.
 
-![How it should be](https://github.com/creta5164/peak-more-customizations/tree/main/docs/img/build-from-source-1.png)
+![How it should be](https://github.com/creta5164/peak-more-customizations/raw/main/docs/img/build-from-source-1.png)
 
 - `GameDir` : Installation path of PEAK. (i.e. it should be ended with `...steamapps/common/PEAK`)
 - `DestDir` : Distribution path of compiled results. (i.e. parent directory of `BepInEx`.)
