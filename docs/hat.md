@@ -22,6 +22,7 @@ to create your own resources.
 - Scout's head radius is approximately `1.415` units.
 - World's origin point is center of scout's head.
 - Recommended to export `.fbx`.
+
 ![Export](./img/hat-guide-12.png)
 - When you export, open 'Transform' tab and apply below settings.
   - Forward : Y Forward
