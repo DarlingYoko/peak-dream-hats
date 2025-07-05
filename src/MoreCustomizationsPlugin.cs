@@ -6,6 +6,7 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine;
+using System.Reflection;
 
 namespace MoreCustomizations;
 
@@ -16,7 +17,10 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
     
     private static string _assetBundlePath;
     public static string AssetBundlePath
-        => _assetBundlePath ??= Path.Combine(Paths.PluginPath, MyPluginInfo.PLUGIN_NAME, ASSET_BUNDLE_DIR);
+        => _assetBundlePath ??= Path.Combine(
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+            ASSET_BUNDLE_DIR
+        );
     
     internal static MoreCustomizationsPlugin Singleton { get; private set; }
     

@@ -1,5 +1,9 @@
 # Change logs
 
+## 1.0.5
+
+- Fixed look up directory is not correct on ThunderStore build.
+
 ## 1.0.2-1.0.4
 
 - Updated documentations for ThunderStore
