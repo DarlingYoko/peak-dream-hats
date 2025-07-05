@@ -1,0 +1,17 @@
+{
+    "bundleFile": "my_pack",
+    "type": "hat",
+    "textureName": "hats/horn_icon.png",
+    "fitPrefabName": "hats/horn_prefab.fbx",
+    "fitMainTextureName": "hats/horn_base_texture.png",
+    "fitPrefabPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "fitPrefabEulerAngle": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+    }
+}
