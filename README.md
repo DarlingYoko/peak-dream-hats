@@ -1,6 +1,6 @@
 # More Customizations
 
-![Thumbnail](./icon.png)
+![Thumbnail](https://github.com/Creta5164/peak-more-customizations/raw/main/icon.png)
 
 This mod manages to allow adding more customization options by utilizing AssetBundle.
 
