@@ -13,8 +13,6 @@ namespace MoreCustomizations;
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
     
-    public const string ASSET_BUNDLE_DIR = "Customizations";
-    
     internal static MoreCustomizationsPlugin Singleton { get; private set; }
     
     internal static new ManualLogSource Logger;
