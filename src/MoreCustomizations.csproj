@@ -12,6 +12,7 @@
       https://nuget.samboy.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <RootNamespace>MoreCustomizations</RootNamespace>
+    <DefineConstants>MOD_AREA</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Data dependencies -->
+    <Compile Include="../unity-package/Runtime/Data/**/*.cs"/>
+    
     <!-- Unity dependencies -->
     <Reference Include="$(GameDir)/PEAK_Data/Managed/UnityEngine*.dll"/>
     

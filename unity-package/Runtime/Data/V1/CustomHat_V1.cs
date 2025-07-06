@@ -26,13 +26,26 @@ namespace MoreCustomizations.Data {
         
         [field: SerializeField]
         public Vector3 EulerAngleOffset { get; internal set; }
-
+        
+        public Vector3 SwizzledPositionOffset
+            => new Vector3(
+                PositionOffset.x,
+                -PositionOffset.z,
+                PositionOffset.y
+            );
+        
+        public Vector3 SwizzledRotationOffset
+            => new Vector3(
+                EulerAngleOffset.x,
+                -EulerAngleOffset.z,
+                -EulerAngleOffset.y
+            );
+        
         public override Texture IconTexture
             => Icon;
         
         public override bool IsValid()
             => Icon
-            && Prefab
-            && MainTexture;
+            && Prefab;
     }
 }
