@@ -1,0 +1,15 @@
+{
+    "name": "com.cretapark.more-customization-tools",
+    "displayName": "Tools for PEAK More Customization mod",
+    "version": "1.0.0",
+    "description": "This package provides tools for creating custom contents for More Customization mod on PEAK.",
+    "unity": "6000.0",
+    "author": {
+        "name": "Creta Park",
+        "email": "creta5164+upm@gmail.com",
+        "url": "https://creft.me/cretapark"
+    },
+    "changelogUrl": "https://github.com/creta5164/peak-more-customizations/tree/main/unity-package/CHANGELOG.md",
+    "documentationUrl": "https://github.com/creta5164/peak-more-customizations/tree/main/docs/using-tools.md",
+    "licensesUrl": "https://github.com/creta5164/peak-more-customizations/tree/main/LICENSE"
+}
