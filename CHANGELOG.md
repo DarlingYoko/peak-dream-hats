@@ -1,5 +1,31 @@
 # Change logs
 
+## 1.1.0
+
+### Breaking change
+
+Starting `1.1.0`, previous version of contents will incompatible, due refactoring data structure.
+
+But this change was necessary for the future, and to be clear,
+I and the contributors to the Discord PEAK modding community have worked together
+to make it easier for you to create and distribute content.
+
+If you've already created content,
+please refer to the newly revised
+[Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)
+guide documentation.
+
+Note that now prerequisites requires [Git](https://git-scm.com), please install Git before reading it.
+
+Sorry for inconvenience.
+
+Special thanks to IAmBatby, AriIcedT, LittleTurtle!
+
+- Overhaul and reworked the customization data classes and loading logics for improving content creation workflow.
+- Updated guide document about
+    [Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md).
+- Updated the guide documentation to reflect additional information about eyes.
+
 ## 1.0.5
 
 - Fixed look up directory is not correct on ThunderStore build.

@@ -6,6 +6,16 @@ This mod manages to allow adding more customization options by utilizing AssetBu
 
 Most parts are inspired from [CustomHats](https://github.com/radsi/PEAK-CustomHats).
 
+# Breaking change
+
+Starting from version `1.1.0`, version `1.0.x`'s file is incompatible due huge refactor of data structure.
+
+Please follow documentations again in
+[Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md) part
+if you made with it.
+
+Sorry for inconvenience!
+
 # Features
 
 - Adds customization options from mod directory
@@ -30,8 +40,8 @@ Most parts are inspired from [CustomHats](https://github.com/radsi/PEAK-CustomHa
 
 ## Prerequisites
 
-- **Unity Editor** *(6.0)*
-  - Required for creating asset bundle.
+- **Unity Editor** *(6.0)* and **Git**
+  - Required for creating customization files.
 - **Image editing tool** *(Photoshop, Affinity, Krita, etc.)*
   - Required if you want to add face related types.
 - **Modeling tool** *(Recommended to use Blender)*
@@ -44,7 +54,6 @@ Most parts are inspired from [CustomHats](https://github.com/radsi/PEAK-CustomHa
 - [Eyes](https://github.com/creta5164/peak-more-customizations/tree/main/docs/eyes.md)
 - [Hat](https://github.com/creta5164/peak-more-customizations/tree/main/docs/hat.md)
 - [Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)
-- [Create customization](https://github.com/creta5164/peak-more-customizations/tree/main/docs/create-customization.md)
 
 # Build from source
 
@@ -76,3 +85,11 @@ dotnet publish ./src --configuration Release
 ```
 
 This will produces package files to `src/bin/ThunderStore`.
+
+## Testing Unity tool
+
+Recommended to use [Package Symlinker](https://github.com/codewriter-packages/Package-Symlinker) package.
+
+If you using that package, open Tool menu will show Package Symlinker.
+
+Add this repository's `unity-package` folder to work with it in your Unity project.

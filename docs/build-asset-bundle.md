@@ -16,7 +16,7 @@ In order to load customization with this mod, you need empty project that can pr
 
 1. Create directory you want to pack assets, and import assets to your directory.
 
-I'd recommend to separate them by each customization types.
+I'd recommend to separate them by each customization types for organization purposes.
 - `accessories`
 - `eyes`
 - `mouths`
@@ -39,7 +39,7 @@ Asset bundle only can have lower cases so you should use `snake_case` convention
      - Uncheck 'Alpha is Transparency'
      - Uncheck 'Generate Mipmap' in 'Advanced' foldout
      - Set Wrap Mode to 'Clamp'
-     - Set Compression to 'High Quality'
+     - Set Compression to 'High Quality' or 'None'
    - Hat
      - For model(fbx)
        - In 'Model' tab, check 'Bake Axis Conversion'
@@ -54,52 +54,77 @@ You can find it easily by scroll down of model import settings.
 
 It should has default transform values. (All zero, one scale)
 
-![Create editor script](./img/build-asset-bundle-6.png)
+![Install tool package](./img/build-asset-bundle-6.png)
 
-1. Create directory named `Editor` at `Assets`.
+5. Install tools for building asset bundle
 
-And create script file named `BuildAssetBundle` with fill contents to below code snippet.
+Open 'Window' at the top menu and find 'Package Manager'.
 
-```csharp
-using System.IO;
-using UnityEditor;
+When Package Manager window shows, press `+` at the top left corner
+and choose 'Install package from git URL...' will shows input form.
 
-static class BuildAssetBundle {
-    
-    [MenuItem("For PEAK/Build asset bundle")]
-    static void Build() {
-        
-        var outputPath = "Assets/AssetBundles";
-        
-        if(!Directory.Exists(outputPath))
-            Directory.CreateDirectory(outputPath);
+Paste below URL to form and click 'Install' at right corner will install tool package.
 
-        BuildPipeline.BuildAssetBundles(
-            outputPath,
-            BuildAssetBundleOptions.RecurseDependencies,
-            BuildTarget.StandaloneWindows
-        );
-        
-        AssetDatabase.Refresh();
-    }
-}
+```
+https://github.com/Creta5164/peak-more-customizations.git?path=unity-package
 ```
 
-![Set your customizations to asset bundle](./img/build-asset-bundle-7.gif)
+This tool will help to build your customization content!
 
-6. Set asset bundle to your customization directory.
-   - Click your customization directory.
-   - In bottom part of inspector, you can see 'AssetBundle',
-     Click dropdown of right there, and name it your customizations asset pack name.  
-     For this guide, I'll use `my_pack` for it.  
-     (Same as directory name)
+![Create customization asset](./img/build-asset-bundle-7.gif)
 
-![Build asset bundle](./img/build-asset-bundle-8.png)
+6. Create actual customization data asset!
 
-1. Run 'For PEAK/Build asset bundle' at top of window.  
+You should create customization data asset so mod can determine which asset is made for customization.
+
+In empty area of project tab, right click and navigate
+`Create/PEAK More Customizations` to see available customization options.
+
+Select you want to make will create data asset to same directory.
+
+Click it will shows input forms on inspector,
+now you should fill these form for customization.
+
+- Accessory, Eye, Mouth
+  - Texture is required.
+- Hat
+  - Icon, Prefab, Main Texture are required.
+  - Use sub texture if your model has secondary material.
+  - Position/Euler angle offset is for adjusting place in game.
+
+![Result](./img/build-asset-bundle-8.png)
+
+If you finished to do it, result will looks like this.
+
+![Configure asset bundle](./img/build-asset-bundle-9.gif)
+
+7. Configure export asset bundle.
+
+In project tab, click your directory makes inspector shows information.
+
+At the bottom, you can see 'AssetBundle' option.
+
+First dropdown is what file name is, and second dropdown is what file extension is.
+
+Add or select first dropdown to what you to do.
+
+Second dropdown is must be `pcab`, mod will only load this extension.
+
+> It stands for 'PEAK Custom(ization) Asset Bundle'.
+
+![Build Asset Bundle](./img/build-asset-bundle-10.png)
+
+8. Run 'For PEAK/Build asset bundle' at top of window.  
    This will produce asset bundle file to `Assets/AssetBundles`
    as you named asset bundle name.
 
-Note that do not rename asset bundle file!
+![Take builded asset bundle](./img/build-asset-bundle-11.png)
 
-[Now you are ready to create customization!](https://github.com/Creta5164/peak-more-customizations/tree/main/docs/create-customization.md)
+You can grab builded file by right click to 'Show in Explorer'.
+
+Note that you should take `<your_asset_bundle_name>.pcab` file!
+
+Place this file anywhere in the `plugins` folder of `BepInEx` to finish it!  
+The mod will recognize and load your customization file.
+
+To share your customization file, you can include it in your ThunderStore and publish it!

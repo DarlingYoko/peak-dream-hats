@@ -6,21 +6,12 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine;
-using System.Reflection;
+using MoreCustomizations.Data;
 
 namespace MoreCustomizations;
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
-    
-    public const string ASSET_BUNDLE_DIR = "Customizations";
-    
-    private static string _assetBundlePath;
-    public static string AssetBundlePath
-        => _assetBundlePath ??= Path.Combine(
-            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-            ASSET_BUNDLE_DIR
-        );
     
     internal static MoreCustomizationsPlugin Singleton { get; private set; }
     
@@ -47,47 +38,40 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
 
     private void LoadAllCustomizations() {
         
-        if (!Directory.Exists(AssetBundlePath))
-            Directory.CreateDirectory(AssetBundlePath);
-        
         AllCustomizationsData = null;
         var loadedCustomizationsData = new Dictionary<Customization.Type, List<CustomizationData>>();
         
-        string[] customizationDataPaths = Directory.GetFiles(AssetBundlePath, "*.json", SearchOption.AllDirectories);
+        string rootPath = Path.Combine(Paths.BepInExRootPath, "plugins");
         
-        if (customizationDataPaths.Length == 0)
-            throw new FileNotFoundException($"No customization files found in '{AssetBundlePath}'.");
+        string[] peakCustomAssetBundlePaths = Directory.GetFiles(rootPath, "*.pcab", SearchOption.AllDirectories);
         
-        Logger.LogInfo($"Found {customizationDataPaths.Length} possible contents");
+        if (peakCustomAssetBundlePaths.Length == 0)
+            throw new FileNotFoundException($"No customization files found in '{Paths.PluginPath}'.");
+        
+        Logger.LogInfo($"Found {peakCustomAssetBundlePaths.Length} possible contents.");
         
         var fetchedCustomizationData = new List<CustomizationData>();
         
-        foreach (string customizationDataPath in customizationDataPaths) {
+        foreach (string peakCustomAssetBundlePath in peakCustomAssetBundlePaths) {
             
-            string fileName = Path.GetFileNameWithoutExtension(customizationDataPath);
+            string trimmedBundleFilePath = peakCustomAssetBundlePath[Paths.PluginPath.Length..];
+            string bundleFileName        = Path.GetFileNameWithoutExtension(peakCustomAssetBundlePath);
             
             try {
                 
-                string customizationDataContent = File.ReadAllText(customizationDataPath);
-                var customizationData = JsonUtility.FromJson<CustomizationData>(customizationDataContent);
+                var assetBundle = AssetBundle.LoadFromFile(peakCustomAssetBundlePath);
                 
-                customizationData.SetLocalPath(Path.GetDirectoryName(customizationDataPath));
-                customizationData.SetName(fileName);
+                Logger.LogInfo($"Asset bundle '{bundleFileName}' loaded! ({trimmedBundleFilePath})");
+                Logger.LogInfo($"Catalog list :");
                 
-                if (!customizationData.HasValidConfig(out string invalidReason))
-                    throw new InvalidDataException(
-                        $"""
-                        Customization data of '{fileName}' is invalid.
-                            {invalidReason}
-                        """
-                    );
+                foreach (string assetPath in assetBundle.GetAllAssetNames())
+                    Logger.LogInfo($"- {assetPath}");
                 
-                fetchedCustomizationData.Add(customizationData);
-                Logger.LogInfo($"Found '{fileName}'.");
+                fetchedCustomizationData.AddRange(assetBundle.LoadAllAssets<CustomizationData>());
                 
             } catch (Exception ex) {
                 
-                Logger.LogError($"Failed to load '{fileName}'.");
+                Logger.LogError($"Error occurred while loading custom asset bundle. ({trimmedBundleFilePath})");
                 Logger.LogError(ex.Message);
                 Logger.LogError(ex.StackTrace);
             }
@@ -95,12 +79,7 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
         
         Logger.LogInfo($"Loading {fetchedCustomizationData.Count} customizations...");
         
-        foreach (var customizationData in fetchedCustomizationData) {
-            
-            customizationData.LoadAsset();
-            
-            if (!customizationData.IsLoaded)
-                continue;
+        foreach (CustomizationData customizationData in fetchedCustomizationData) {
             
             var type = customizationData.Type;
             
@@ -111,7 +90,7 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
             }
             
             loadedCustomizations.Add(customizationData);
-            Logger.LogInfo($"Loaded '{customizationData.Name}'! ({customizationData.TrimmedBundleFilePath})");
+            Logger.LogInfo($"Loaded '{customizationData.name}'!");
         }
         
         Logger.LogInfo("Done!");

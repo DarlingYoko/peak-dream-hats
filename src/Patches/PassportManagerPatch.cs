@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using HarmonyLib;
+using UnityEngine;
 
 using Plugin = MoreCustomizations.MoreCustomizationsPlugin;
 
@@ -53,10 +54,18 @@ public class PassportManagerPatch {
             
             foreach (var customizationData in customizationsData) {
                 
-                if (!customizationData.IsLoaded)
+                if (!customizationData || !customizationData.IsValid())
                     continue;
                 
-                customizationOptions.Add(customizationData.CreateOption());
+                var option = ScriptableObject.CreateInstance<CustomizationOption>();
+        
+                option.requiredAchievement = ACHIEVEMENTTYPE.NONE;
+                
+                option.name    = customizationData.name;
+                option.type    = customizationData.Type;
+                option.texture = customizationData.IconTexture;
+                
+                customizationOptions.Add(option);
             }
         }
         

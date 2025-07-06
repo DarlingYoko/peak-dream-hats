@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
+using MoreCustomizations.Data;
 using UnityEngine;
 
 using Plugin = MoreCustomizations.MoreCustomizationsPlugin;
@@ -49,37 +51,42 @@ public class CharacterCustomizationPatch {
             
             var instantiatedHats = new List<Renderer>(__instance.refs.playerHats);
             
-            foreach (var customizationData in customizationsData) {
+            foreach (var customizationData in customizationsData.OfType<CustomHat_V1>()) {
                 
-                if (!customizationData.IsLoaded)
+                if (!customizationData || !customizationData.IsValid())
                     continue;
                 
-                GameObject hatInstance = Object.Instantiate(customizationData.FitPrefab, hatTransform, false);
+                GameObject hatInstance = Object.Instantiate(customizationData.Prefab, hatTransform, false);
                 Renderer   hatInstanceRenderer = hatInstance.GetComponentInChildren<Renderer>();
                 
                 if (!hatInstanceRenderer) {
                     
                     Plugin.Logger.LogError(
-                        $"Cannot find Renderer component of customization data '{customizationData.Name}'. ({customizationData.AbsoluteBundleFilePath})"
+                        $"Cannot find Renderer component of customization data '{customizationData.name}'."
                     );
                     Object.Destroy(hatInstance);
                     continue;
                 }
                 
-                hatInstance.transform.localPosition = INITIAL_HAT_OFFSET + customizationData.SwizzledFitPrefabPosition;
-                hatInstance.transform.localRotation = customizationData.SwizzledFitPrefabRotation;
+                hatInstance.transform.localPosition
+                    = INITIAL_HAT_OFFSET
+                    + customizationData.SwizzledPositionOffset;
+                
+                hatInstance.transform.localRotation
+                    = Quaternion.Euler(customizationData.SwizzledRotationOffset)
+                    * Quaternion.AngleAxis(90, Vector3.right);
                 
                 hatInstanceRenderer.gameObject.SetActive(false);
-                hatInstanceRenderer.name = customizationData.Name;
+                hatInstanceRenderer.name = customizationData.name;
                 
                 var mainMaterial = new Material(_characterShader);
                 var subMaterial  = new Material(_characterShader);
                 
-                if (customizationData.FitMainTexture)
-                    mainMaterial.SetTexture("_MainTex", customizationData.FitMainTexture);
+                if (customizationData.MainTexture)
+                    mainMaterial.SetTexture("_MainTex", customizationData.MainTexture);
                 
-                if (customizationData.FitSubTexture)
-                    subMaterial.SetTexture("_MainTex", customizationData.FitSubTexture);
+                if (customizationData.SubTexture)
+                    subMaterial.SetTexture("_MainTex", customizationData.SubTexture);
                 
                 hatInstanceRenderer.materials = [
                     mainMaterial,
