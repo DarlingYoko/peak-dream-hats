@@ -41,7 +41,9 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
         AllCustomizationsData = null;
         var loadedCustomizationsData = new Dictionary<Customization.Type, List<CustomizationData>>();
         
-        string[] peakCustomAssetBundlePaths = Directory.GetFiles(Paths.PluginPath, "*.pcab", SearchOption.AllDirectories);
+        string rootPath = Path.Combine(Paths.BepInExRootPath, "plugins");
+        
+        string[] peakCustomAssetBundlePaths = Directory.GetFiles(rootPath, "*.pcab", SearchOption.AllDirectories);
         
         if (peakCustomAssetBundlePaths.Length == 0)
             throw new FileNotFoundException($"No customization files found in '{Paths.PluginPath}'.");
