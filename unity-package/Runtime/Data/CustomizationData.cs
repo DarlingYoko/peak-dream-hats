@@ -2,7 +2,12 @@ using UnityEngine;
 
 namespace MoreCustomizations.Data {
     
-    public abstract partial class CustomizationData : ScriptableObject { }
+    public abstract partial class CustomizationData : ScriptableObject {
+        
+        public abstract Texture IconTexture { get; }
+        
+        public abstract bool IsValid();
+    }
     
     //NOTE: These are for determining customization types statically, must be empty body.
     public abstract partial class CustomAccessoryData : CustomizationData { }

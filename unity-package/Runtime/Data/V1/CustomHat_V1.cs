@@ -26,5 +26,13 @@ namespace MoreCustomizations.Data {
         
         [field: SerializeField]
         public Vector3 EulerAngleOffset { get; internal set; }
+
+        public override Texture IconTexture
+            => Icon;
+        
+        public override bool IsValid()
+            => Icon
+            && Prefab
+            && MainTexture;
     }
 }
