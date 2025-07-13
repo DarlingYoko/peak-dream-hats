@@ -9,7 +9,7 @@ namespace MoreCustomizations.Patches;
 
 public class PlayerCustomizationDummyPatch {
     
-    [HarmonyPatch(typeof(PlayerCustomizationDummy), "SetPlayerHat")]
+    [HarmonyPatch(typeof(PlayerCustomizationDummy), nameof(PlayerCustomizationDummy.SetPlayerHat))]
     [HarmonyPrefix]
     private static void SetPlayerHat(PlayerCustomizationDummy __instance, int index) {
         
