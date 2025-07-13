@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Collections.Generic;
 using HarmonyLib;
 using UnityEngine;
 
@@ -82,30 +82,42 @@ public class PassportManagerPatch {
     [HarmonyPatch(typeof(PassportManager), "CameraIn")]
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> CameraInTranspiler(IEnumerable<CodeInstruction> instructions) {
-        //   this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.65f, 1f), 0.2f, false);
-        // ->this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.65f, 3f), 0.2f, false);
-        List<CodeInstruction> list = instructions.ToList();
-        foreach (CodeInstruction instruction in list) {
+        
+        //this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.65f, 1f), 0.2f, false);
+        //                                                              ^^
+        //                                                              Modifying this to 3f.
+        
+        foreach (CodeInstruction instruction in instructions) {
+            
             if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand != null && instruction.operand.Equals(1f)) {
+                
                 instruction.operand = 3f;
-                break;
+                yield return instruction;
+                continue;
             }
+            
+            yield return instruction;
         }
-        return list.AsEnumerable();
     }
 
     [HarmonyPatch(typeof(PassportManager), "CameraOut")]
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> CameraOutTranspiler(IEnumerable<CodeInstruction> instructions) {
-        //   this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.05f, 1f), 0.2f, false);
-        // ->this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.05f, 3f), 0.2f, false);
-        List<CodeInstruction> list = instructions.ToList();
-        foreach (CodeInstruction instruction in list) {
+        
+        //this.dummyCamera.transform.DOLocalMove(new Vector3(0f, 1.05f, 1f), 0.2f, false);
+        //                                                              ^^
+        //                                                              Modifying this to 3f.
+        
+        foreach (CodeInstruction instruction in instructions) {
+            
             if (instruction.opcode == OpCodes.Ldc_R4 && instruction.operand != null && instruction.operand.Equals(1f)) {
+                
                 instruction.operand = 3f;
-                break;
+                yield return instruction;
+                continue;
             }
+            
+            yield return instruction;
         }
-        return list.AsEnumerable();
     }
 }
