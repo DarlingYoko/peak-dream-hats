@@ -40,6 +40,7 @@
     
     <!-- Game libraries dependencies -->
     <Reference Include="$(GameDir)/PEAK_Data/Managed/Zorro.*.dll"/>
+    <Reference Include="$(GameDir)/PEAK_Data/Managed/PhotonUnityNetworking.dll"/>
     
     <!-- Game dependencies -->
     <Reference Include="$(GameDir)/PEAK_Data/Managed/Assembly-CSharp.dll"/>

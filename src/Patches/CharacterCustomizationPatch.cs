@@ -45,7 +45,7 @@ public class CharacterCustomizationPatch {
             
             if (!hatTransform) {
                 
-                Plugin.Logger.LogError("Something went wrong...");
+                Plugin.Logger.LogError($"Something went wrong in {nameof(CharacterCustomizationPatch)}...");
                 return;
             }
             
