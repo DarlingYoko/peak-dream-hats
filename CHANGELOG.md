@@ -1,5 +1,10 @@
 # Change logs
 
+## 1.1.1
+
+- Improved for Passport menu to display custom hats. [#6](https://github.com/Creta5164/peak-more-customizations/pull/6)  
+  Contributed by IntRabbit
+
 ## 1.1.0
 
 ### Breaking change
