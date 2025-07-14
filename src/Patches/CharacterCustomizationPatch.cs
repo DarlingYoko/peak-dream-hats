@@ -9,8 +9,8 @@ using Plugin = MoreCustomizations.MoreCustomizationsPlugin;
 namespace MoreCustomizations.Patches;
 
 public class CharacterCustomizationPatch {
-    
-    public const string HAT_PATH = @"Scout/Armature/Hip/Mid/AimJoint/Torso/Head/Hat";
+
+    public const string HAT_PATH = @"Scout/" + Helpers.CustomizationRefsHelper.REF_TO_HATS_PATH;
     private static Shader _characterShader;
     private static MaterialPropertyBlock _materialPropertyBlock = new();
     private static readonly Vector3 INITIAL_HAT_OFFSET = new(0, 0.2f, 6.0f);
