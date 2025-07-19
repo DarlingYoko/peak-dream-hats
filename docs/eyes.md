@@ -10,8 +10,9 @@ The is probably tricky for non-technical artists, but stick with this!
 3. Eye image is supposed to represent red, green, and blue as the parts of the eye.
    - Red is conjunctiva (white color of eye)
    - Green is pupil (black color of eye)
-     - Only this part will move around for looking direction.
      - **Recommended to place center of image**.
+     - Only this part will move around for looking direction.
+     - If green value are going to less it will be blue color of pupil.
    - Blue is decoration
      - If blue is over `50%`, it'll be **reflection of eye**. (highlight)
      - If less then `40%`, it'll be **eyelashes**.
