@@ -1,5 +1,12 @@
 # Change logs
 
+## 1.1.2
+
+- Added detailed information about Green value of eye texture. [#4](https://github.com/Creta5164/peak-more-customizations/issues/4)  
+  Contributed by FedoraBunny
+- Fixed ending sequence not showing custom hats. [#10](https://github.com/Creta5164/peak-more-customizations/pull/10)  
+  Contributed by IntRabbit (thanks again!)
+
 ## 1.1.1
 
 - Improved for Passport menu to display custom hats. [#6](https://github.com/Creta5164/peak-more-customizations/pull/6)  
