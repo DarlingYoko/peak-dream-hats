@@ -18,6 +18,7 @@ public class PeakHandlePatch {
 
         // the characters who sit down
         for (int i = 0; i < __instance.cutsceneScoutRefs.Count(); i++) {
+            
             if (!Helpers.CustomizationRefsHelper.SyncCustomHats(__instance.cutsceneScoutRefs[i]))
                 Plugin.Logger.LogError($"Something went wrong in {nameof(PeakHandlePatch)} [cutsceneScoutRefs-{i}]...");
         }

@@ -69,7 +69,12 @@ public partial class MoreCustomizationsPlugin : BaseUnityPlugin {
                 foreach (string assetPath in assetBundle.GetAllAssetNames())
                     Logger.LogInfo($"- {assetPath}");
                 
-                fetchedCustomizationData.AddRange(assetBundle.LoadAllAssets<CustomizationData>());
+                var bundledCustomizations = assetBundle.LoadAllAssets<CustomizationData>();
+                
+                foreach (var bundledCustomization in bundledCustomizations)
+                    bundledCustomization.name = $"{trimmedBundleFilePath.GetHashCode()}_{bundledCustomization.name}";
+                
+                fetchedCustomizationData.AddRange(bundledCustomizations);
                 
             } catch (Exception ex) {
                 

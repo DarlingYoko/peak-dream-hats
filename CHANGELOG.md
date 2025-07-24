@@ -1,5 +1,9 @@
 # Change logs
 
+## 1.1.3
+
+- Fixed name conflict in contents by adding hash from bundle path.
+
 ## 1.1.2
 
 - Added detailed information about Green value of eye texture. [#4](https://github.com/Creta5164/peak-more-customizations/issues/4)  

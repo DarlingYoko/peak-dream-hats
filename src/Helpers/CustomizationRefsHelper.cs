@@ -11,13 +11,17 @@ public class CustomizationRefsHelper {
     public const string REF_TO_HATS_PATH = @"Armature/Hip/Mid/AimJoint/Torso/Head/Hat";
 
     public static bool SyncCustomHats(CustomizationRefs dstRefs, CustomizationRefs srcRefs = null) {
+        
         if (srcRefs == null) {
+            
             Character localCharacter = Character.localCharacter;
 
             if (!localCharacter || !localCharacter.TryGetComponent<CharacterCustomization>(out var characterCustomization)) {
+                
                 Plugin.Logger.LogError($"Cannot get [LocalCharacter] or its' [CustomizationRefs] ...");
                 return false; 
             }
+            
             srcRefs = characterCustomization.refs;
         }
 
@@ -31,6 +35,7 @@ public class CustomizationRefsHelper {
         Renderer firstDummyHatRenderer = dstPlayerHats.FirstOrDefault();
 
         if (!firstDummyHatRenderer) {
+            
             Plugin.Logger.LogError($"Cannot find renders in dstPlayerHats...");
             return false;
         }
