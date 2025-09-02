@@ -1,17 +1,16 @@
 # Peak Dream Hats
 
-![Thumbnail](https://github.com/DarlingYoko/peak-dream-hats/blob/main/icon.png)
+![Thumbnail](https://i.imgur.com/rvni4HX.png)
 
 # Description
 Mod includes 20 unique hat models, ranging from a lovely flower hat to a cool kitsune mask. There’s even a hat with a big red arrow to make sure you never lose track of your partner’s body.
 
 # Hats Collection
-- one
-- two
-- trhere
+![Hats preview](https://i.imgur.com/XfzoyYJ.png)
+
 
 # Credits
-Hats design and 3D model - [X (Twitter)](https://x.com/yanadodo) [ArtStation](https://www.artstation.com/yanadodo)
+Hats design and 3D model - [X (Twitter)](https://x.com/yanadodo_3d) || [ArtStation](https://www.artstation.com/yanadodo)
 
 
 # Dependencies
