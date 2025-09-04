@@ -1,57 +1,12 @@
 # Change logs
 
-## 1.1.3
 
-- Fixed name conflict in contents by adding hash from bundle path.
+## 1.0.2
 
-## 1.1.2
-
-- Added detailed information about Green value of eye texture. [#4](https://github.com/Creta5164/peak-more-customizations/issues/4)  
-  Contributed by FedoraBunny
-- Fixed ending sequence not showing custom hats. [#10](https://github.com/Creta5164/peak-more-customizations/pull/10)  
-  Contributed by IntRabbit (thanks again!)
-
-## 1.1.1
-
-- Improved for Passport menu to display custom hats. [#6](https://github.com/Creta5164/peak-more-customizations/pull/6)  
-  Contributed by IntRabbit
-
-## 1.1.0
-
-### Breaking change
-
-Starting `1.1.0`, previous version of contents will incompatible, due refactoring data structure.
-
-But this change was necessary for the future, and to be clear,
-I and the contributors to the Discord PEAK modding community have worked together
-to make it easier for you to create and distribute content.
-
-If you've already created content,
-please refer to the newly revised
-[Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md)
-guide documentation.
-
-Note that now prerequisites requires [Git](https://git-scm.com), please install Git before reading it.
-
-Sorry for inconvenience.
-
-Special thanks to IAmBatby, AriIcedT, LittleTurtle!
-
-- Overhaul and reworked the customization data classes and loading logics for improving content creation workflow.
-- Updated guide document about
-    [Build asset bundle](https://github.com/creta5164/peak-more-customizations/tree/main/docs/build-asset-bundle.md).
-- Updated the guide documentation to reflect additional information about eyes.
-
-## 1.0.5
-
-- Fixed look up directory is not correct on ThunderStore build.
-
-## 1.0.2-1.0.4
-
-- Updated documentations for ThunderStore
-- Added `The MIT License (MIT)` to LICENSE (I missed this one, sorry!)
+- Fixed texture rendering
+- Tested in online co-op
+- Updated README.md, added gifs
 
 ## 1.0.0-1.0.1
 
 - Initial release
-- Removed code for debugging

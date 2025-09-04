@@ -7,6 +7,10 @@ Mod includes 20 unique hat models, ranging from a lovely flower hat to a cool ki
 
 # Hats Collection
 ![Hats preview](https://i.imgur.com/XfzoyYJ.png)
+![gif1](https://i.imgur.com/bpO7dct.gif)
+![gif2](https://i.imgur.com/OD7EuLF.gif)
+![gif3](https://i.imgur.com/6m6yYt1.gif)
+![gif4](https://i.imgur.com/SHttlDQ.gif)
 
 
 # Credits

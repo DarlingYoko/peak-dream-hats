@@ -1,7 +1,7 @@
 {
     "name": "Peak_Dream_Hats",
     "description": "This mod adds 20 unique 3D hat models for your adventures.",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "dependencies": [
         "BepInEx-BepInExPack_PEAK-5.4.2403",
         "Radsi2-PassporPagination-1.0.0"
